@@ -1,3 +1,5 @@
 <resources>
   <string name="app_name">Project</string>
+  <string name="toolBarTitle">Паспортные данные</string>
+  <string name="nextButtonString">Далее</string>
 </resources>
