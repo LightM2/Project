@@ -8,6 +8,7 @@
   </data>
 
   <LinearLayout android:layout_width="match_parent"
+      android:id="@+id/toolbarLL"
       android:orientation="vertical"
       android:layout_height="match_parent">
 
@@ -18,135 +19,133 @@
       <androidx.appcompat.widget.Toolbar android:layout_width="match_parent"
           android:theme="@style/ToolBarTheme"
           android:layout_height="?attr/actionBarSize"
-          android:id="@+id/main_toolbar"
-          app:title="@string/toolBarTitle"
-          app:navigationIcon="@drawable/ic_arrow_back_green_24dp">
+          android:id="@+id/mainToolbar"
+          app:title="@string/registration_passport_data_title"
+          app:navigationIcon="@drawable/ic_arrow_back_green_24dp"
+          navigationListener="@{() -> viewModel.onClick()}">
 
       </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView android:layout_width="match_parent"
-        android:layout_gravity="center"
         android:fillViewport="true"
+        android:id="@+id/registrationSV"
         android:layout_height="match_parent">
       <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
           android:layout_gravity="center"
+          android:id="@+id/registrationCL"
           android:maxWidth="500dp"
           android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/left_guideline"
+            android:id="@+id/leftGL"
             app:layout_constraintGuide_begin="16dp"
             android:orientation="vertical"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/right_guideline"
+            android:id="@+id/rightGL"
             app:layout_constraintGuide_end="16dp"
             android:orientation="vertical"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/top_guideline"
+            android:id="@+id/topGL"
             app:layout_constraintGuide_begin="16dp"
             android:orientation="horizontal"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/bottom_guideline"
+            android:id="@+id/bottomGL"
             app:layout_constraintGuide_end="6dp"
             android:orientation="horizontal"/>
 
         <LinearLayout android:layout_width="0dp"
-            android:id="@+id/documentLayout"
+            android:id="@+id/documentLL"
             android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="@+id/top_guideline"
-            app:layout_constraintLeft_toLeftOf="@+id/left_guideline"
-            app:layout_constraintRight_toRightOf="@+id/right_guideline"
+            app:layout_constraintTop_toTopOf="@+id/topGL"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGL"
+            app:layout_constraintRight_toRightOf="@+id/rightGL"
             android:layout_height="wrap_content">
 
           <ImageView android:layout_width="wrap_content"
-              android:id="@+id/documentCheckCircle"
+              android:id="@+id/documentIV"
               android:src="@drawable/ic_check_circle_default"
               android:layout_gravity="center_vertical"
               android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-              android:hint="@string/document"
-              android:id="@+id/documentText"
+              android:hint="@string/registration_document_title"
+              android:id="@+id/documentTIL"
               style="@style/TextInputLayoutStyle"
-              android:paddingLeft="34dp"
+              android:paddingLeft="@dimen/registration_left_padding_TIL"
               android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/EditText"
                 android:inputType="textCapWords"/>
           </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
         <LinearLayout android:layout_width="0dp"
-            android:id="@+id/placeLayout"
+            android:id="@+id/placeLL"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/documentLayout"
-            app:layout_constraintLeft_toLeftOf="@+id/left_guideline"
-            app:layout_constraintRight_toRightOf="@+id/right_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/documentLL"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGL"
+            app:layout_constraintRight_toRightOf="@+id/rightGL"
             android:layout_height="wrap_content">
 
           <ImageView android:layout_width="wrap_content"
-              android:id="@+id/placeCheckCircle"
+              android:id="@+id/placeIV"
               android:src="@drawable/ic_check_circle_default"
               android:layout_gravity="center_vertical"
               android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-              android:hint="@string/placeDocument"
-              android:id="@+id/placeText"
+              android:hint="@string/registration_place_document_title"
+              android:id="@+id/placeTIL"
               style="@style/TextInputLayoutStyle"
-              android:paddingLeft="34dp"
+              android:paddingLeft="@dimen/registration_left_padding_TIL"
               android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/EditText"
                 android:inputType="textCapWords"/>
           </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
         <LinearLayout android:layout_width="0dp"
-            android:id="@+id/seriesLayout"
+            android:id="@+id/seriesLL"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/placeLayout"
-            app:layout_constraintLeft_toLeftOf="@+id/left_guideline"
-            app:layout_constraintRight_toRightOf="@+id/right_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/placeLL"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGL"
+            app:layout_constraintRight_toRightOf="@+id/rightGL"
             android:layout_height="wrap_content">
 
           <ImageView android:layout_width="wrap_content"
-              android:id="@+id/seriesCheckCircle"
+              android:id="@+id/seriesIV"
               android:src="@drawable/ic_check_circle_default"
               android:layout_gravity="center_vertical"
               android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-              android:hint="@string/series"
-              android:id="@+id/seriesText"
+              android:hint="@string/registration_series_title"
+              android:id="@+id/seriesTIL"
               style="@style/TextInputLayoutStyle"
               app:counterEnabled="true"
               app:counterMaxLength="4"
-              android:paddingLeft="34dp"
+              android:paddingLeft="@dimen/registration_left_padding_TIL"
               android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                style="@style/EditText"
                 android:maxLength="4"
                 android:inputType="number"/>
           </com.google.android.material.textfield.TextInputLayout>
@@ -154,30 +153,28 @@
         </LinearLayout>
 
         <LinearLayout android:layout_width="0dp"
-            android:id="@+id/numberLayout"
+            android:id="@+id/numberLL"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/seriesLayout"
-            app:layout_constraintLeft_toLeftOf="@+id/left_guideline"
-            app:layout_constraintRight_toRightOf="@+id/right_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/seriesLL"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGL"
+            app:layout_constraintRight_toRightOf="@+id/rightGL"
             android:layout_height="wrap_content">
 
           <ImageView android:layout_width="wrap_content"
-              android:id="@+id/numberCheckCircle"
+              android:id="@+id/numberIV"
               android:src="@drawable/ic_check_circle_default"
               android:layout_gravity="center_vertical"
               android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-              android:hint="@string/number"
-              android:id="@+id/numberText"
+              android:hint="@string/registration_number_title"
+              android:id="@+id/numberTIL"
               style="@style/TextInputLayoutStyle"
-              android:paddingLeft="34dp"
+              android:paddingLeft="@dimen/registration_left_padding_TIL"
               android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                style="@style/EditText"
                 android:maxLength="6"
                 android:inputType="number"/>
           </com.google.android.material.textfield.TextInputLayout>
@@ -185,62 +182,61 @@
         </LinearLayout>
 
         <LinearLayout android:layout_width="0dp"
-            android:id="@+id/dateLayout"
+            android:id="@+id/dateLL"
             android:orientation="horizontal"
-            app:layout_constraintLeft_toLeftOf="@+id/left_guideline"
-            app:layout_constraintRight_toRightOf="@+id/right_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/numberLayout"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGL"
+            app:layout_constraintRight_toRightOf="@+id/rightGL"
+            app:layout_constraintTop_toBottomOf="@+id/numberLL"
             android:layout_height="wrap_content">
 
           <ImageView android:layout_width="wrap_content"
-              android:id="@+id/dataCheckCircle"
+              android:id="@+id/dateIV"
               android:src="@drawable/ic_check_circle_default"
               android:layout_gravity="center_vertical"
               android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-              android:hint="@string/date"
-              android:id="@+id/dateText"
+              android:hint="@string/registration_passport_data_title"
+              android:id="@+id/dateTIL"
               style="@style/TextInputLayoutStyle"
-              android:paddingLeft="34dp"
+              android:paddingLeft="@dimen/registration_left_padding_TIL"
               android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                chosenDataListener="@{viewModel}"
+                chosenData="@{viewModel.date}"
                 android:cursorVisible="false"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
-                style="@style/EditText"
                 android:inputType="date"/>
           </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
 
         <LinearLayout android:layout_width="0dp"
-            android:id="@+id/codeLayout"
+            android:id="@+id/codeLL"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/dateLayout"
-            app:layout_constraintLeft_toLeftOf="@+id/left_guideline"
-            app:layout_constraintRight_toRightOf="@+id/right_guideline"
+            app:layout_constraintTop_toBottomOf="@+id/dateLL"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGL"
+            app:layout_constraintRight_toRightOf="@+id/rightGL"
             android:layout_height="wrap_content">
 
           <ImageView android:layout_width="wrap_content"
-              android:id="@+id/checkCircle"
+              android:id="@+id/codeIV"
               android:src="@drawable/ic_check_circle_default"
               android:layout_gravity="center_vertical"
               android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
-              android:hint="@string/code"
-              android:id="@+id/codeText"
+              android:hint="@string/registration_unit_code_title"
+              android:id="@+id/codeTIL"
               style="@style/TextInputLayoutStyle"
-              android:paddingLeft="34dp"
+              android:paddingLeft="@dimen/registration_left_padding_TIL"
               android:layout_height="wrap_content">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:singleLine="true"
-                style="@style/EditText"
                 android:maxLength="7"
                 android:inputType="number|phone"/>
           </com.google.android.material.textfield.TextInputLayout>
@@ -248,26 +244,28 @@
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton android:layout_width="0dp"
-            android:id="@+id/nextButton"
-            android:text="@string/nextButtonString"
+            android:id="@+id/nextBtn"
+            android:text="@string/registration_next_button"
             style="@style/NextButtonTheme"
+            android:onClick="@{() -> viewModel.onClick()}"
             android:layout_gravity="bottom"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/codeLayout"
-            app:layout_constraintLeft_toLeftOf="@+id/left_guideline"
-            app:layout_constraintRight_toRightOf="@+id/right_guideline"
-            app:layout_constraintBottom_toTopOf="@+id/cancelButton"
+            app:layout_constraintTop_toBottomOf="@+id/codeLL"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGL"
+            app:layout_constraintRight_toRightOf="@+id/rightGL"
+            app:layout_constraintBottom_toTopOf="@+id/cancelBtn"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="1"/>
 
         <com.google.android.material.button.MaterialButton android:layout_width="0dp"
-            android:id="@+id/cancelButton"
-            android:text="@string/cancel"
+            android:id="@+id/cancelBtn"
+            android:text="@string/registration_cancel_button"
             style="@style/CancelButtonTheme"
-            app:rippleColor="@color/defaultNextButtonColor"
-            app:layout_constraintBottom_toBottomOf="@+id/bottom_guideline"
-            app:layout_constraintLeft_toLeftOf="@+id/left_guideline"
-            app:layout_constraintRight_toRightOf="@+id/right_guideline"
+            app:rippleColor="@color/colorDefaultNextButton"
+            android:onClick="@{() -> viewModel.onClick()}"
+            app:layout_constraintBottom_toBottomOf="@+id/bottomGL"
+            app:layout_constraintLeft_toLeftOf="@+id/leftGL"
+            app:layout_constraintRight_toRightOf="@+id/rightGL"
             android:layout_gravity="bottom"
             android:layout_height="wrap_content"/>
       </androidx.constraintlayout.widget.ConstraintLayout>

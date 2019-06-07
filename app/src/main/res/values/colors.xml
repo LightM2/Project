@@ -3,11 +3,11 @@
   <color name="colorPrimary">#008577</color>
   <color name="colorPrimaryDark">#00574B</color>
   <color name="colorAccent">#D81B60</color>
-  <color name="ColorBlack">#0f0f1a</color>
-  <color name="statusBarColor">#35c56d</color>
+  <color name="colorBlack">#0f0f1a</color>
+  <color name="colorStatusBar">#35c56d</color>
   <color name="colorWhite">#ffffff</color>
-  <color name="toolBarColor">#1ead56</color>
-  <color name="defaultNextButtonColor">#33000000</color>
-  <color name="defaultCancelButtonColor">#ff8503</color>
-  <color name="hintTextColor">#80000000</color>
+  <color name="colorToolbar">#1ead56</color>
+  <color name="colorDefaultNextButton">#33000000</color>
+  <color name="colorDefaultCancelButton">#ff8503</color>
+  <color name="colorHintTextColor">#80000000</color>
 </resources>

@@ -5,59 +5,60 @@
     <!-- Customize your theme here. -->
     <item name="colorPrimary">@color/colorPrimary</item>
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-    <item name="colorAccent">@color/defaultNextButtonColor</item>
+    <item name="colorAccent">@color/colorDefaultNextButton</item>
+    <item name="android:editTextStyle">@style/EditTextStyle</item>
+    <item name="android:statusBarColor">@color/colorStatusBar</item>
+    <item name="buttonStyle">@style/TextAppearance.MaterialComponents.Button</item>
   </style>
 
   <style name="ToolBarTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
     <item name="android:background">@color/colorWhite</item>
-    <item name="android:textColorPrimary">@color/toolBarColor</item>
-    <item name="android:textColor">@color/toolBarColor</item>
+    <item name="android:textColorPrimary">@color/colorToolbar</item>
+    <item name="android:textColor">@color/colorToolbar</item>
     <item name="android:textSize">20sp</item>
     <item name="android:textStyle">normal</item>
     <item name="android:fontFamily">sans-serif-medium</item>
   </style>
 
   <style name="NextButtonTheme" parent="Widget.MaterialComponents.Button.UnelevatedButton">
-    <item name="backgroundTint">@color/defaultNextButtonColor</item>
+    <item name="backgroundTint">@color/colorDefaultNextButton</item>
     <item name="android:textColor">@color/colorWhite</item>
-    <item name="android:fontFamily">sans-serif-medium</item>
-    <item name="android:textStyle">normal</item>
-    <item name="android:gravity">center</item>
-    <item name="android:textSize">14sp</item>
-    <item name="android:paddingTop">11dp</item>
-    <item name="android:paddingBottom">11dp</item>
-    <item name="android:textAllCaps">true</item>
   </style>
 
+
   <style name="CancelButtonTheme" parent="Widget.MaterialComponents.Button.TextButton">
-    <item name="android:textColor">@color/defaultCancelButtonColor</item>
+    <item name="android:textColor">@color/colorDefaultCancelButton</item>
+    <item name="android:fontFamily">sans-serif-medium</item>
+  </style>
+
+  <style name="ButtonStyle" parent="TextAppearance.MaterialComponents.Button">
     <item name="android:fontFamily">sans-serif-medium</item>
     <item name="android:textStyle">normal</item>
     <item name="android:gravity">center</item>
     <item name="android:textSize">14sp</item>
-    <item name="android:paddingTop">11dp</item>
-    <item name="android:paddingBottom">11dp</item>
+    <item name="android:paddingTop">@dimen/registration_top_padding_Btn</item>
+    <item name="android:paddingBottom">@dimen/registration_bottom_padding_Btn</item>
     <item name="android:textAllCaps">true</item>
   </style>
 
   <style name="TextInputLayoutStyle" parent="Widget.Design.TextInputLayout">
-    <item name="android:textColorHint">@color/hintTextColor</item>
+    <item name="android:textColorHint">@color/colorHintTextColor</item>
     <item name="errorTextAppearance">@style/ErrorText</item>
     <item name="hintTextAppearance">@style/HintText</item>
   </style>
 
   <style name="ErrorText" parent="TextAppearance.AppCompat">
-    <item name="android:textColor">@color/defaultCancelButtonColor</item>
+    <item name="android:textColor">@color/colorDefaultCancelButton</item>
     <item name="android:textSize">12sp</item>
   </style>
 
   <style name="HintText" parent="TextAppearance.AppCompat">
     <item name="android:textSize">12sp</item>
-    <item name="android:textColor">@color/hintTextColor</item>
+    <item name="android:textColor">@color/colorHintTextColor</item>
   </style>
 
-  <style name="EditText">
-    <item name="android:textColor">@color/ColorBlack</item>
+  <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+    <item name="android:textColor">@color/colorBlack</item>
     <item name="android:textSize">16sp</item>
     <item name="android:textStyle">normal</item>
     <item name="android:fontFamily">sans-serif</item>

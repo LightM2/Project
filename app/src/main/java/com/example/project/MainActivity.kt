@@ -9,13 +9,10 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    val window = this.window
-    window.statusBarColor = this.resources.getColor(R.color.statusBarColor)
-
-    val mainFragment = MainFragment()
+    val mainFragment = MainFragment.newInstance()
     val manager = supportFragmentManager
     val transaction = manager.beginTransaction()
-    transaction.replace(R.id.fragmentFrame, mainFragment)
+    transaction.replace(R.id.fragmentFrame, mainFragment) //+extension
     transaction.addToBackStack(null)
     transaction.commit()
   }

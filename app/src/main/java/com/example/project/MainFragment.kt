@@ -11,6 +11,11 @@ class MainFragment : BaseFragment<MainFragmentBinding, MainViewModel>() {
     fun newInstance() = MainFragment()
   }
 
+  fun newInstance(): MainFragment {
+    val fragment = MainFragment()
+    return fragment
+  }
+
   //private lateinit var viewModel: MainViewModel
 
 }
