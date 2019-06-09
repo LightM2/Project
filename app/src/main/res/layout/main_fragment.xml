@@ -79,13 +79,14 @@
               android:layout_gravity="center_vertical"
               android:layout_height="wrap_content"/>
 
+
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
               android:hint="@string/registration_document_title"
               android:id="@+id/documentTIL"
               style="@style/TextInputLayoutStyle"
               android:paddingLeft="@dimen/registration_left_padding_TIL"
               android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
+            <com.example.project.MyTextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"/>
