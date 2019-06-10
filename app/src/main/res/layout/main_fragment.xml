@@ -65,7 +65,7 @@
             app:layout_constraintGuide_end="6dp"
             android:orientation="horizontal"/>
 
-        <LinearLayout android:layout_width="0dp"
+        <com.example.project.MyLinearLayout android:layout_width="0dp"
             android:id="@+id/documentLL"
             android:orientation="horizontal"
             app:layout_constraintTop_toTopOf="@+id/topGL"
@@ -73,40 +73,28 @@
             app:layout_constraintRight_toRightOf="@+id/rightGL"
             android:layout_height="wrap_content">
 
-          <ImageView android:layout_width="wrap_content"
-              android:id="@+id/documentIV"
-              android:src="@drawable/ic_check_circle_default"
-              android:layout_gravity="center_vertical"
-              android:layout_height="wrap_content"/>
-
-
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
               android:hint="@string/registration_document_title"
               android:id="@+id/documentTIL"
               style="@style/TextInputLayoutStyle"
               android:paddingLeft="@dimen/registration_left_padding_TIL"
+              android:background="@drawable/selector_til"
               android:layout_height="wrap_content">
-            <com.example.project.MyTextInputEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textCapWords"/>
           </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
+        </com.example.project.MyLinearLayout>
 
-        <LinearLayout android:layout_width="0dp"
+        <com.example.project.MyLinearLayout android:layout_width="0dp"
             android:id="@+id/placeLL"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/documentLL"
             app:layout_constraintLeft_toLeftOf="@+id/leftGL"
             app:layout_constraintRight_toRightOf="@+id/rightGL"
             android:layout_height="wrap_content">
-
-          <ImageView android:layout_width="wrap_content"
-              android:id="@+id/placeIV"
-              android:src="@drawable/ic_check_circle_default"
-              android:layout_gravity="center_vertical"
-              android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
               android:hint="@string/registration_place_document_title"
@@ -120,9 +108,9 @@
                 android:inputType="textCapWords"/>
           </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
+        </com.example.project.MyLinearLayout>
 
-        <LinearLayout android:layout_width="0dp"
+        <com.example.project.MyLinearLayout android:layout_width="0dp"
             android:id="@+id/seriesLL"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/placeLL"
@@ -130,11 +118,6 @@
             app:layout_constraintRight_toRightOf="@+id/rightGL"
             android:layout_height="wrap_content">
 
-          <ImageView android:layout_width="wrap_content"
-              android:id="@+id/seriesIV"
-              android:src="@drawable/ic_check_circle_default"
-              android:layout_gravity="center_vertical"
-              android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
               android:hint="@string/registration_series_title"
@@ -151,7 +134,7 @@
                 android:inputType="number"/>
           </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
+        </com.example.project.MyLinearLayout>
 
         <LinearLayout android:layout_width="0dp"
             android:id="@+id/numberLL"

@@ -10,4 +10,7 @@
   <color name="colorDefaultNextButton">#33000000</color>
   <color name="colorDefaultCancelButton">#ff8503</color>
   <color name="colorHintTextColor">#80000000</color>
+  <color name="colorFocusedTextInputLayout">#35c56d</color>
+  <color name="colorErrorTextInputLayout">#ff8503</color>
+  <color name="colorDefaultTextInputLayout">#b2b2b2</color>
 </resources>
