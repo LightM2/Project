@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+  <item android:state_focused="true"
+      android:color="@color/colorFocusedTextInputLayout"/>
+  <item android:color="@color/colorDefaultTextInputLayout"/>
+  <item app:state_error_LL="true"
+      android:color="@color/colorErrorTextInputLayout"/>
+
+
+</selector>
