@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
   <item android:state_focused="true"
       android:color="@color/colorFocusedTextInputLayout"/>
-  <item android:color="@color/colorDefaultTextInputLayout"/>
+  <item
+      android:color="@color/colorDefaultTextInputLayout"/>
   <item app:state_error_LL="true"
       android:color="@color/colorErrorTextInputLayout"/>
 

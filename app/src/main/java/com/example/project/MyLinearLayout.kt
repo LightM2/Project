@@ -1,6 +1,8 @@
 package com.example.project
 
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
 import android.view.Gravity
@@ -11,32 +13,35 @@ import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.textfield.TextInputLayout
 
-class MyLinearLayout : LinearLayoutCompat {
-  constructor(context: Context) : this(context, null)
-  constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-
-  constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-    context,
-    attrs,
-    defStyleAttr
-  ) {
-    var t = context.obtainStyledAttributes(attrs, R.styleable.StateLL, defStyleAttr, 0)
-
-  }
-
-
-
+class MyLinearLayout @JvmOverloads constructor(
+  context: Context,
+  attrs: AttributeSet? = null,
+  defStyleAttr: Int = 0
+) : LinearLayoutCompat(context, attrs, defStyleAttr) {
 
   private var iconImageView: ImageView = ImageView(context)
 
-  /*private var textInputLayout: TextInputLayout = TextInputLayout(context)*/
-  private var focusET = false
-  private var errorET = false
-  /*private val STATE_FOCUS_LL = intArrayOf(R.attr.state_focus_LL)
-  private val STATE_ERROR_LL = intArrayOf(R.attr.state_error_LL)
-  private val STATE_DEFAULT_LL = intArrayOf(R.attr.state_default_LL)*/
+  enum class State {
+    DEFAULT,
+    FOCUSED,
+    ERROR
+  }
+
+  private var error = false
+  private var focus = false
+  var colorStateList: ColorStateList = ColorStateList(
+    arrayOf(intArrayOf(android.R.attr.state_enabled)),
+    intArrayOf(R.color.colorFocusedTextInputLayout)
+  )
 
   init {
+    if (attrs != null) {
+      val t = context.obtainStyledAttributes(attrs, R.styleable.MyLinearLayout, defStyleAttr, 0)
+      colorStateList = t.getColorStateList(R.styleable.MyLinearLayout_colorSL)
+      val color = colorStateList.getColorForState(drawableState, Color.WHITE)
+      Log.d("myteg", "$color")
+
+    }
     iconImageView.setImageResource(R.drawable.ic_check_circle_default)
     val paramsIV = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
     paramsIV.gravity = Gravity.CENTER
@@ -50,59 +55,58 @@ class MyLinearLayout : LinearLayoutCompat {
     if (child is TextInputLayout) {
       child.editText?.setOnFocusChangeListener { v, hasFocus ->
         Log.d("myteg", "$hasFocus")
-        if (hasFocus) {
-          focusET = true
-          errorET = true
-          iconImageView.setColorFilter(
-            ContextCompat.getColor(
-              context,
-              R.color.colorFocusedTextInputLayout
-            ), android.graphics.PorterDuff.Mode.SRC_IN
-          )
-        }
+        changedState(hasFocus, child)
+
+        /*if (hasFocus) {
+          changedState(hasFocus)
+
+          iconImageView.setColorFilter(colorStateList.getColorForState(drawableState, 0))
+        }*/
       }
     }
   }
 
-  fun setError() {
+  private fun changedState(hasFocus: Boolean, textInputLayout: TextInputLayout) {
+    var text = textInputLayout.editText?.text.toString()
+    if (error) {
+      setError(text)
+    } else {
+      if (hasFocus) {
+        setFocus()
+        Log.d("myteg", "Focused")
+      } else {
+        setError(text)
+        Log.d("myteg", "Default")
+        textInputLayout.error = "Error"
+      }
+    }
 
+    /*if (hasFocus()){
+      State.Focused.s = true
+      State.Default.s = false
+      iconImageView.setColorFilter(colorStateList.getColorForState(drawableState, 0))
+      Log.d("myteg", "Focused")
+    }else{
+      State.Focused.s = false
+      State.Default.s = true
+      Log.d("myteg", "Default")
+    }*/
   }
 
-  /*fun changedIVTint(){
-    val states = arrayOf( intArrayOf(android.R.attr.state_enabled) )
-    //iconImageView.imageTintList = ColorStateList( states, intArrayOf(Color.GREEN) )
-    when{
-      focusET -> iconImageView.imageTintList = ColorStateList( states, intArrayOf(R.color.colorFocusedTextInputLayout) )
-      errorET -> iconImageView.imageTintList = ColorStateList( states, intArrayOf(R.color.colorErrorTextInputLayout) )
-      else -> iconImageView.imageTintList = ColorStateList( states, intArrayOf(R.color.colorDefaultTextInputLayout) )
-    }
-  }*/
-
-  /*override fun onCreateDrawableState(extraSpace: Int): IntArray {
-    val baseState = super.onCreateDrawableState(extraSpace + 3)
-    when{
-      focusET -> View.mergeDrawableStates(baseState, STATE_FOCUS_LL)
-      errorET -> View.mergeDrawableStates(baseState, STATE_ERROR_LL)
-      else -> View.mergeDrawableStates(baseState, STATE_DEFAULT_LL)
-    }
-    return baseState
+  private fun setError(string: String) {
+    error = true
+    focus = false
+    iconImageView.setColorFilter(ContextCompat.getColor(context, R.color.colorErrorTextInputLayout))
   }
 
-
-
-
-  fun setFocusET(b:Boolean){
-    if (focusET != b){
-      focusET = b
-      refreshDrawableState()
-    }
+  private fun setFocus() {
+    focus = true
+    iconImageView.setColorFilter(
+      ContextCompat.getColor(
+        context,
+        R.color.colorFocusedTextInputLayout
+      )
+    )
   }
-
-  fun setErrorET(b: Boolean){
-    if (errorET != b){
-      errorET = b
-      refreshDrawableState()
-    }
-  }*/
 
 }

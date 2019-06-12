@@ -3,7 +3,7 @@
   <declare-styleable name="StateLL">
     <attr name="state_error_LL" format="boolean"/>
   </declare-styleable>
-  <declare-styleable name="ColorLL">
-    <attr name="color" format="reference"/>
+  <declare-styleable name="MyLinearLayout">
+    <attr name="colorSL" format="reference"/>
   </declare-styleable>
 </resources>
