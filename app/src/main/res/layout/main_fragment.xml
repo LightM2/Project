@@ -138,20 +138,14 @@
 
         </com.example.project.MyLinearLayout>
 
-        <LinearLayout android:layout_width="0dp"
+        <com.example.project.MyLinearLayout android:layout_width="0dp"
             android:id="@+id/numberLL"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/seriesLL"
             app:layout_constraintLeft_toLeftOf="@+id/leftGL"
             app:layout_constraintRight_toRightOf="@+id/rightGL"
+            app:colorSL="@color/selector_ll"
             android:layout_height="wrap_content">
-
-          <ImageView android:layout_width="wrap_content"
-              android:id="@+id/numberIV"
-              android:src="@drawable/ic_check_circle_default"
-              android:layout_gravity="center_vertical"
-              app:colorSL="@color/selector_ll"
-              android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
               android:hint="@string/registration_number_title"
@@ -166,21 +160,16 @@
                 android:inputType="number"/>
           </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
+        </com.example.project.MyLinearLayout>
 
-        <LinearLayout android:layout_width="0dp"
+        <com.example.project.MyLinearLayout android:layout_width="0dp"
             android:id="@+id/dateLL"
             android:orientation="horizontal"
             app:layout_constraintLeft_toLeftOf="@+id/leftGL"
             app:layout_constraintRight_toRightOf="@+id/rightGL"
+            app:colorSL="@color/selector_ll"
             app:layout_constraintTop_toBottomOf="@+id/numberLL"
             android:layout_height="wrap_content">
-
-          <ImageView android:layout_width="wrap_content"
-              android:id="@+id/dateIV"
-              android:src="@drawable/ic_check_circle_default"
-              android:layout_gravity="center_vertical"
-              android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
               android:hint="@string/registration_passport_data_title"
@@ -193,27 +182,24 @@
                 android:layout_height="wrap_content"
                 chosenDataListener="@{viewModel}"
                 chosenData="@{viewModel.date}"
+                android:text="@{viewModel.dateString}"
                 android:cursorVisible="false"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
                 android:inputType="date"/>
           </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
+        </com.example.project.MyLinearLayout>
 
-        <LinearLayout android:layout_width="0dp"
+        <com.example.project.MyLinearLayout android:layout_width="0dp"
             android:id="@+id/codeLL"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/dateLL"
             app:layout_constraintLeft_toLeftOf="@+id/leftGL"
             app:layout_constraintRight_toRightOf="@+id/rightGL"
+            app:colorSL="@color/selector_ll"
             android:layout_height="wrap_content">
 
-          <ImageView android:layout_width="wrap_content"
-              android:id="@+id/codeIV"
-              android:src="@drawable/ic_check_circle_default"
-              android:layout_gravity="center_vertical"
-              android:layout_height="wrap_content"/>
 
           <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent"
               android:hint="@string/registration_unit_code_title"
@@ -228,7 +214,7 @@
                 android:inputType="number|phone"/>
           </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
+        </com.example.project.MyLinearLayout>
 
         <com.google.android.material.button.MaterialButton android:layout_width="0dp"
             android:id="@+id/nextBtn"

@@ -25,7 +25,7 @@ class MainViewModel : BaseViewModel(), DateChosen {
 
   @Bindable
   fun getDateString(): String = date?.let { calendar ->
-    var formal = SimpleDateFormat("dd.MM.yyyy")
+    val formal = SimpleDateFormat("dd.MM.yyyy")
     formal.format(date?.time)
   } ?: ""
 
