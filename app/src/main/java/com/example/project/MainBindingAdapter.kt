@@ -3,7 +3,6 @@ package com.example.project
 import android.app.DatePickerDialog
 import androidx.databinding.BindingAdapter
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import java.util.Calendar
 
 class MainBindingAdapter {
@@ -38,9 +37,11 @@ class MainBindingAdapter {
 
     @BindingAdapter("error")
     @JvmStatic
-    fun setError(textInputLayout: TextInputLayout, errorString: String?) {
-      textInputLayout.error = errorString
+    fun setError(myLinearLayout: MyLinearLayout, errorString: String?) {
+      myLinearLayout.errorText = errorString
+
     }
+
   }
 
 

@@ -42,6 +42,7 @@ class MyLinearLayout @JvmOverloads constructor(
         textInputLayout.error = value
       }
     }
+
   private var state = State.DEFAULT
     set(value) {
       if (field != value) {
@@ -50,7 +51,7 @@ class MyLinearLayout @JvmOverloads constructor(
       }
     }
 
-  private lateinit var textInputLayout: TextInputLayout
+  lateinit var textInputLayout: TextInputLayout
 
   private val colorError = ContextCompat.getColor(context, R.color.colorErrorTextInputLayout)
   private val colorFocused = ContextCompat.getColor(context, R.color.colorFocusedTextInputLayout)
